@@ -11,6 +11,17 @@
 		38AFC4162CBD0C0700D9414E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC4152CBD0C0700D9414E /* ContentView.swift */; };
 		38AFC4182CBD0C0800D9414E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC4172CBD0C0800D9414E /* Assets.xcassets */; };
 		38AFC41B2CBD0C0800D9414E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC41A2CBD0C0800D9414E /* Preview Assets.xcassets */; };
+		38AFC4242CBD98E500D9414E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC4232CBD98E500D9414E /* StartView.swift */; };
+		38AFC4272CBD9C3F00D9414E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC4262CBD9C3F00D9414E /* Font.swift */; };
+		38AFC4292CBD9CF500D9414E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC4282CBD9CF500D9414E /* SettingView.swift */; };
+		38AFC42B2CBD9D0200D9414E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC42A2CBD9D0200D9414E /* MainView.swift */; };
+		38AFC42D2CBD9D0D00D9414E /* WalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC42C2CBD9D0D00D9414E /* WalkView.swift */; };
+		38AFC42F2CBD9D1500D9414E /* HospitalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC42E2CBD9D1500D9414E /* HospitalView.swift */; };
+		38AFC4312CBD9D1E00D9414E /* EndingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC4302CBD9D1E00D9414E /* EndingView.swift */; };
+		38AFC4382CBD9EE300D9414E /* EF_Rainyday-L(otf).otf in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC4352CBD9EE300D9414E /* EF_Rainyday-L(otf).otf */; };
+		38AFC4392CBD9EE300D9414E /* EF_Rainyday-B(otf).otf in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC4362CBD9EE300D9414E /* EF_Rainyday-B(otf).otf */; };
+		38AFC43A2CBD9EE300D9414E /* EF_Rainyday-R(otf).otf in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC4372CBD9EE300D9414E /* EF_Rainyday-R(otf).otf */; };
+		38AFC43D2CBDA32300D9414E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC43C2CBDA32300D9414E /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +30,18 @@
 		38AFC4152CBD0C0700D9414E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		38AFC4172CBD0C0800D9414E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38AFC41A2CBD0C0800D9414E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		38AFC4232CBD98E500D9414E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		38AFC4262CBD9C3F00D9414E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		38AFC4282CBD9CF500D9414E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		38AFC42A2CBD9D0200D9414E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		38AFC42C2CBD9D0D00D9414E /* WalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkView.swift; sourceTree = "<group>"; };
+		38AFC42E2CBD9D1500D9414E /* HospitalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalView.swift; sourceTree = "<group>"; };
+		38AFC4302CBD9D1E00D9414E /* EndingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView.swift; sourceTree = "<group>"; };
+		38AFC4352CBD9EE300D9414E /* EF_Rainyday-L(otf).otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EF_Rainyday-L(otf).otf"; sourceTree = "<group>"; };
+		38AFC4362CBD9EE300D9414E /* EF_Rainyday-B(otf).otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EF_Rainyday-B(otf).otf"; sourceTree = "<group>"; };
+		38AFC4372CBD9EE300D9414E /* EF_Rainyday-R(otf).otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EF_Rainyday-R(otf).otf"; sourceTree = "<group>"; };
+		38AFC43B2CBDA08100D9414E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		38AFC43C2CBDA32300D9414E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +74,13 @@
 		38AFC4122CBD0C0700D9414E /* DaengDaengWeek */ = {
 			isa = PBXGroup;
 			children = (
-				38AFC4132CBD0C0700D9414E /* DaengDaengWeekApp.swift */,
-				38AFC4152CBD0C0700D9414E /* ContentView.swift */,
+				38AFC43B2CBDA08100D9414E /* Info.plist */,
+				38AFC4222CBD0F3600D9414E /* App */,
+				38AFC4212CBD0F2C00D9414E /* Scenes */,
+				38AFC4252CBD9C2C00D9414E /* Extension */,
+				38AFC4322CBD9E1100D9414E /* Resource */,
 				38AFC4172CBD0C0800D9414E /* Assets.xcassets */,
+				38AFC4152CBD0C0700D9414E /* ContentView.swift */,
 				38AFC4192CBD0C0800D9414E /* Preview Content */,
 			);
 			path = DaengDaengWeek;
@@ -65,6 +92,62 @@
 				38AFC41A2CBD0C0800D9414E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		38AFC4212CBD0F2C00D9414E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				38AFC4232CBD98E500D9414E /* StartView.swift */,
+				38AFC4282CBD9CF500D9414E /* SettingView.swift */,
+				38AFC42A2CBD9D0200D9414E /* MainView.swift */,
+				38AFC42C2CBD9D0D00D9414E /* WalkView.swift */,
+				38AFC42E2CBD9D1500D9414E /* HospitalView.swift */,
+				38AFC4302CBD9D1E00D9414E /* EndingView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		38AFC4222CBD0F3600D9414E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				38AFC4132CBD0C0700D9414E /* DaengDaengWeekApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		38AFC4252CBD9C2C00D9414E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				38AFC4262CBD9C3F00D9414E /* Font.swift */,
+				38AFC43C2CBDA32300D9414E /* Color.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		38AFC4322CBD9E1100D9414E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				38AFC4332CBD9E6E00D9414E /* Fonts */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		38AFC4332CBD9E6E00D9414E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				38AFC4342CBD9E7B00D9414E /* Rainyday */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		38AFC4342CBD9E7B00D9414E /* Rainyday */ = {
+			isa = PBXGroup;
+			children = (
+				38AFC4362CBD9EE300D9414E /* EF_Rainyday-B(otf).otf */,
+				38AFC4352CBD9EE300D9414E /* EF_Rainyday-L(otf).otf */,
+				38AFC4372CBD9EE300D9414E /* EF_Rainyday-R(otf).otf */,
+			);
+			path = Rainyday;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +209,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				38AFC41B2CBD0C0800D9414E /* Preview Assets.xcassets in Resources */,
+				38AFC43A2CBD9EE300D9414E /* EF_Rainyday-R(otf).otf in Resources */,
+				38AFC4392CBD9EE300D9414E /* EF_Rainyday-B(otf).otf in Resources */,
+				38AFC4382CBD9EE300D9414E /* EF_Rainyday-L(otf).otf in Resources */,
 				38AFC4182CBD0C0800D9414E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +223,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38AFC4272CBD9C3F00D9414E /* Font.swift in Sources */,
+				38AFC42B2CBD9D0200D9414E /* MainView.swift in Sources */,
+				38AFC4292CBD9CF500D9414E /* SettingView.swift in Sources */,
+				38AFC43D2CBDA32300D9414E /* Color.swift in Sources */,
+				38AFC4242CBD98E500D9414E /* StartView.swift in Sources */,
+				38AFC42F2CBD9D1500D9414E /* HospitalView.swift in Sources */,
+				38AFC4312CBD9D1E00D9414E /* EndingView.swift in Sources */,
 				38AFC4162CBD0C0700D9414E /* ContentView.swift in Sources */,
+				38AFC42D2CBD9D0D00D9414E /* WalkView.swift in Sources */,
 				38AFC4142CBD0C0700D9414E /* DaengDaengWeekApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +368,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DaengDaengWeek/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DaengDaengWeek/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +397,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DaengDaengWeek/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DaengDaengWeek/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
