@@ -30,4 +30,5 @@ extension Color {
     // 16진수 색상코드 가져와서 커스텀 컬러 지정
     static let borderGray = Color(hex: "#A3A09D")
     static let btnBeige = Color(hex: "#F8EBDB")
+    static let aggrement = Color(hex: "#ECCABD")
 }
