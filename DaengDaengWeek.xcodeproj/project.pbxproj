@@ -22,6 +22,7 @@
 		38AFC4392CBD9EE300D9414E /* EF_Rainyday-B(otf).otf in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC4362CBD9EE300D9414E /* EF_Rainyday-B(otf).otf */; };
 		38AFC43A2CBD9EE300D9414E /* EF_Rainyday-R(otf).otf in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC4372CBD9EE300D9414E /* EF_Rainyday-R(otf).otf */; };
 		38AFC43D2CBDA32300D9414E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC43C2CBDA32300D9414E /* Color.swift */; };
+		A1F31D832CBE543B00227EFE /* EncylopediaView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F31D822CBE543100227EFE /* EncylopediaView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		38AFC4372CBD9EE300D9414E /* EF_Rainyday-R(otf).otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EF_Rainyday-R(otf).otf"; sourceTree = "<group>"; };
 		38AFC43B2CBDA08100D9414E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		38AFC43C2CBDA32300D9414E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A1F31D822CBE543100227EFE /* EncylopediaView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncylopediaView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		38AFC4212CBD0F2C00D9414E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A1F31D822CBE543100227EFE /* EncylopediaView2.swift */,
 				38AFC4232CBD98E500D9414E /* StartView.swift */,
 				38AFC4282CBD9CF500D9414E /* SettingView.swift */,
 				38AFC42A2CBD9D0200D9414E /* MainView.swift */,
@@ -226,6 +229,7 @@
 				38AFC4272CBD9C3F00D9414E /* Font.swift in Sources */,
 				38AFC42B2CBD9D0200D9414E /* MainView.swift in Sources */,
 				38AFC4292CBD9CF500D9414E /* SettingView.swift in Sources */,
+				A1F31D832CBE543B00227EFE /* EncylopediaView2.swift in Sources */,
 				38AFC43D2CBDA32300D9414E /* Color.swift in Sources */,
 				38AFC4242CBD98E500D9414E /* StartView.swift in Sources */,
 				38AFC42F2CBD9D1500D9414E /* HospitalView.swift in Sources */,
