@@ -32,4 +32,5 @@ extension Color {
     static let btnBeige = Color(hex: "#FAF5EB")
     static let borderBeige = Color(hex: "#815C56")
     static let outline = Color(hex: "#815C56")
+    static let heartPink = Color(hex: "FFA6EF")
 }

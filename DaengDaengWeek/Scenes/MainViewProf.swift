@@ -15,85 +15,85 @@ struct MainViewProf: View {
     let timer = Timer.publish(every:1, on:. main, in: .common).autoconnect()
     
     var body: some View {
-        VStack {
-            // 상단 정보 영역
-            HStack {
-                
-                VStack {
+        HStack {
+            VStack {
+                HStack {
+                    Image("DogIcon") // 반려견 아이콘
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .padding()
                     
-                    HStack {
-                        Image("DogIcon") // 반려견 아이콘
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .padding()
+                    VStack(alignment: .leading) {
+                        Text("마루")
+                            .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                         
-                        VStack(alignment: .leading) {
-                            Text("마루")
-                                .font(.dw(.bold, size: 25)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
-                            
+                        ZStack(alignment:. leading) {
                             ProgressView(value: affectionLevel)
-                                .progressViewStyle(LinearProgressViewStyle(tint: .pink))
+                                .progressViewStyle(LinearProgressViewStyle(tint: Color.heartPink))
                                 .frame(width: 80)
+                            Image("hearticon")
+                                .offset(x:-10, y:0)
+                                
+                            
                         }
+                        
+                        
+                    }
+                    
+                    Spacer()
+                }
+                
+                Text(currentTime)
+                    .font(.dw(.bold, size: 16)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                    .onAppear(perform: updateTime)
+                    .frame(width: 80, height:  40)
+                    .background(Color.btnBeige)
+                    .cornerRadius(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.borderGray, lineWidth: 3)
+                    )
+                    .padding(.horizontal)
+            }
                         
                         Spacer()
                         
                         Image("money")
-                            .padding()
+                            .padding(EdgeInsets(top:0, leading:0, bottom: 70, trailing: 20))
+
                         
                         
                         Spacer()
                         
-                        VStack(spacing : 7) {
-                            Button(action: {
-                                // 환경설정 버튼 액션
-                            }) {
-                                Image(systemName: "gearshape.fill")
+                        VStack(spacing: 10) {  // 일정한 간격 유지
+                            Button(action: { }) {
+                                Image("settingbtn")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
                             }
-                            
-                            Button(action: {
-                                // 백과사전 버튼 액션
-                            }) {
-                                Image(systemName: "bell.fill")
+                            Button(action: { }) {
+                                Image("noticebtn")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
                             }
-                            
-                            Button(action: {
-                                // 알림 버튼 액션
-                            }) {
-                                Image(systemName: "book.fill")
+                            Button(action: { }) {
+                                Image("bookbtn")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
                             }
                         }
-                        .font(.title2)
                         
-                    }
                     
-                    HStack {
-                        Text(currentTime)
-                            .font(.dw(.bold, size: 16)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
-                            .onAppear(perform: updateTime)
-                            .frame(width: 80, height:  40)
-                            .background(Color.btnBeige)
-                            .cornerRadius(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.borderGray, lineWidth: 3)
-                            )
-                            .padding(.horizontal)
-                        
-                        Spacer()
-                    }
                     
-                }
             }
             .padding()
             .foregroundColor(.black)
-            
-        }
-        
-        
     }
     
-    func updateTime() {
+    func updateTime() { //현재시각을 나타내는 함수
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         currentTime = formatter.string(from: Date())
