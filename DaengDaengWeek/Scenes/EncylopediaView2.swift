@@ -134,6 +134,8 @@ struct SectionButton: View {
         VStack(spacing: 0) {
             Button(action: action) {
                 HStack {
+                    Spacer()
+                    
                     Text(title)
                         .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                     
@@ -154,15 +156,17 @@ struct SectionButton: View {
                         }) {
                             VStack{
                                 HStack{
-                                    Image("lockicon")
+                                    Image("feedstuff")
+                                        .font(.largeTitle)
                                         .padding()
-                                    Text("사료주기 1")
+                                    Text("사료주기 • 1")
                                         .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                                     Spacer()
                                 }
-                                Text("강아지는 성장단계에 따라서 사료가 주는 횟수가 달라집니다. ")
+                                Text("강아지는 성장 단계에 따라 하루에 사료를 주는 횟수가 달라집니다. 대부분의 경우 어릴 땐 하루 4~5회, 성견일 땐 2회 정도가 적당합니다.")
                                     .font(.dw(.bold, size: 20)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                                     .multilineTextAlignment(.leading)
+                                    .padding(.horizontal)
                             }
                         }
                         
@@ -173,13 +177,15 @@ struct SectionButton: View {
                                 HStack{
                                     Image("lockicon")
                                         .padding()
-                                    Text("사료주기 2")
+                                    Text("사료주기 • 2")
                                         .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                                 }
-                                Text("해금이 필요합니다. ")
-                                    .font(.dw(.bold, size: 20)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
-                                    .multilineTextAlignment(.leading)
-
+                                HStack{
+                                    Image("lockicon")
+                                        .padding()
+                                    Text("사료주기 • 3")
+                                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                }
                                 
                             }
                         }
