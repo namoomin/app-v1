@@ -1,10 +1,3 @@
-//
-//  MainView.swift
-//  DaengDaengWeek
-//
-//  Created by Jini on 10/15/24.
-//
-
 import SwiftUI
 
 struct MainView: View {
@@ -14,13 +7,16 @@ struct MainView: View {
     @State private var feedingProgress: CGFloat = 1.0
     @State private var activePopup: String? = nil
 
-    // 게이지가 줄어드는 시간 설정 (예: 30초)
     private let feedingDuration: TimeInterval = 30.0
 
     @State private var borderSize: CGFloat = 1
     @State private var buttonSpacing: CGFloat = 20
 
+    @State private var currentImageIndex: Int = 0
+    private let images = ["Maindog1", "Maindog2"]
+
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    let imageTimer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
 
     var body: some View {
         VStack {
@@ -49,18 +45,26 @@ struct MainView: View {
 
                         Spacer()
 
-                        VStack(spacing: 7) {
+                        VStack(spacing: 15) {  // 일정한 간격 유지
                             Button(action: { }) {
                                 Image("settingbtn")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
                             }
                             Button(action: { }) {
                                 Image("noticebtn")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
                             }
                             Button(action: { }) {
                                 Image("bookbtn")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
                             }
                         }
-                        .font(.title2)
                     }
 
                     HStack {
@@ -84,6 +88,17 @@ struct MainView: View {
 
             Spacer()
 
+            // 가운데 이미지 영역 (약간 위로 이동)
+            Image(images[currentImageIndex])
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .transition(.opacity)
+                .animation(.easeInOut, value: currentImageIndex)
+                .padding(.bottom, 120)
+
+            Spacer()
+
             // 하단 버튼 영역
             HStack(spacing: buttonSpacing) {
                 FeedingButtonView(
@@ -98,7 +113,7 @@ struct MainView: View {
                 ButtonView(
                     icon: Image("hygienebtn"),
                     text: "위생관리",
-                    backgroundColor: .btnBeige,  // 배경색 설정
+                    backgroundColor: .btnBeige,
                     borderWidth: borderSize,
                     action: { togglePopup(for: "hygiene") }
                 )
@@ -106,7 +121,7 @@ struct MainView: View {
                 ButtonView(
                     icon: Image("affectionbtn"),
                     text: "애정표현",
-                    backgroundColor: .btnBeige,  // 배경색 설정
+                    backgroundColor: .btnBeige,
                     borderWidth: borderSize,
                     action: { togglePopup(for: "affection") }
                 )
@@ -114,7 +129,7 @@ struct MainView: View {
                 ButtonView(
                     icon: Image("Outingbtn"),
                     text: "외출하기",
-                    backgroundColor: .btnBeige,  // 배경색 설정
+                    backgroundColor: .btnBeige,
                     borderWidth: borderSize,
                     action: { togglePopup(for: "outing") }
                 )
@@ -123,6 +138,9 @@ struct MainView: View {
         }
         .onReceive(timer) { _ in
             updateFeedingProgress()
+        }
+        .onReceive(imageTimer) { _ in
+            cycleImages()
         }
     }
 
@@ -147,6 +165,10 @@ struct MainView: View {
 
     func togglePopup(for buttonType: String) {
         activePopup = activePopup == buttonType ? nil : buttonType
+    }
+
+    func cycleImages() {
+        currentImageIndex = (currentImageIndex + 1) % images.count
     }
 }
 
@@ -195,7 +217,7 @@ struct FeedingButtonView: View {
 struct ButtonView: View {
     let icon: Image
     let text: String
-    let backgroundColor: Color // 배경색 매개변수 추가
+    let backgroundColor: Color
     let borderWidth: CGFloat
     let action: () -> Void
 
