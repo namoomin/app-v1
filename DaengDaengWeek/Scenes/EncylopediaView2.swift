@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EncyclopediaView2: View {
+    @State var text : String = ""
     @State private var expandedSection: String? = nil
     
     var body: some View {
@@ -32,6 +33,12 @@ struct EncyclopediaView2: View {
                     Image("Bookbtn3")
                 }
                 
+                Button(action: {
+                    // Tab 4  action
+                }) {
+                    Image("Bookbtn4")
+                }
+                
                 Spacer()
             }
             .frame(alignment:.leading)
@@ -39,22 +46,33 @@ struct EncyclopediaView2: View {
 
             VStack {
                 HStack {
-                    Image(systemName: "books.vertical")
+                    Image("bookicon")
                         .font(.largeTitle)
                         .padding(.leading)
                     
-                    Text("멍멍테니카 백과사전")
-                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
-                        .padding(.leading)
+                    ZStack {
+                        // Border layer
+                        Text("멍멍테니카 백과사전")
+                            .font(.dw(.bold, size: 26)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                            .foregroundColor(Color.borderGray)
+                            .padding(8)
+                            .overlay(
+                                Text("멍멍테니카 백과사전")
+                                    .font(.dw(.bold, size: 26)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                    .foregroundColor(Color.borderBeige) //Border color
+                                    .offset(x:2, y:2)
+                                    .padding(8)
+                            )
+                        
+                        //Foreground text
+                        Text("멍멍테니카 백과사전")
+                            .font(.dw(.bold, size: 26)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                            .foregroundColor(.white) // Text Color
+                            .padding(8)
+                    }
                     
                     Spacer()
                     
-                    Button(action: {
-                        // 검색 버튼 액션
-                    }) {
-                        Image(systemName: "magnifyingglass")
-                            .padding()
-                    }
                     
                     Button(action: {
                         // 닫기 버튼 액션
@@ -64,6 +82,9 @@ struct EncyclopediaView2: View {
                     }
                 }
                 .padding(EdgeInsets(top:20, leading:10, bottom: 20, trailing: 10))
+                
+                searchBarView(text:self.$text)
+                    .padding(.horizontal,20)
                 
                 ScrollView {
                     VStack(spacing: 10) {
@@ -113,6 +134,8 @@ struct SectionButton: View {
         VStack(spacing: 0) {
             Button(action: action) {
                 HStack {
+                    Spacer()
+                    
                     Text(title)
                         .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                     
@@ -126,19 +149,59 @@ struct SectionButton: View {
             }
             
             if isExpanded {
-                VStack(alignment:.leading) {
-                    Text("\(title) 내용이 여기에 표시됩니다.")
-                        .frame(width:300, height:200)
-                        .padding()
+                if title == "사료주기" {
+                    VStack(alignment:.leading) {
+                        Button(action: {
+                            // Tab 1 action
+                        }) {
+                            VStack{
+                                HStack{
+                                    Image("feedstuff")
+                                        .font(.largeTitle)
+                                        .padding()
+                                    Text("사료주기 • 1")
+                                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                    Spacer()
+                                }
+                                Text("강아지는 성장 단계에 따라 하루에 사료를 주는 횟수가 달라집니다. 대부분의 경우 어릴 땐 하루 4~5회, 성견일 땐 2회 정도가 적당합니다.")
+                                    .font(.dw(.bold, size: 20)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.horizontal)
+                            }
+                        }
+                        
+                        Button(action: {
+                            // Tab 2 action
+                        }) {
+                            VStack{
+                                HStack{
+                                    Image("lockicon")
+                                        .padding()
+                                    Text("사료주기 • 2")
+                                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                }
+                                HStack{
+                                    Image("lockicon")
+                                        .padding()
+                                    Text("사료주기 • 3")
+                                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                    .background(Color.white.opacity(0.9))
+                    .cornerRadius(5)
                     
-                    Spacer(minLength: 20)
+                    
                 }
-                .background(Color.white.opacity(0.9))
-                .cornerRadius(5)
             }
         }
     }
 }
+
+    
 
 #Preview {
     EncyclopediaView2()

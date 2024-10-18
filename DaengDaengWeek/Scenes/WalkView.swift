@@ -13,6 +13,6 @@ struct WalkView: View {
     }
 }
 
-//#Preview {
-//    WalkView()
-//}
+#Preview {
+    WalkView()
+}

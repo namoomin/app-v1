@@ -22,6 +22,8 @@
 		38AFC4392CBD9EE300D9414E /* EF_Rainyday-B(otf).otf in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC4362CBD9EE300D9414E /* EF_Rainyday-B(otf).otf */; };
 		38AFC43A2CBD9EE300D9414E /* EF_Rainyday-R(otf).otf in Resources */ = {isa = PBXBuildFile; fileRef = 38AFC4372CBD9EE300D9414E /* EF_Rainyday-R(otf).otf */; };
 		38AFC43D2CBDA32300D9414E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC43C2CBDA32300D9414E /* Color.swift */; };
+		A15706202CC0E6DD00115165 /* MainViewProf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A157061F2CC0E6CB00115165 /* MainViewProf.swift */; };
+		A15706222CC0F80C00115165 /* searchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15706212CC0F80000115165 /* searchBarView.swift */; };
 		A1F31D832CBE543B00227EFE /* EncylopediaView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F31D822CBE543100227EFE /* EncylopediaView2.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		38AFC4372CBD9EE300D9414E /* EF_Rainyday-R(otf).otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EF_Rainyday-R(otf).otf"; sourceTree = "<group>"; };
 		38AFC43B2CBDA08100D9414E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		38AFC43C2CBDA32300D9414E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A157061F2CC0E6CB00115165 /* MainViewProf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProf.swift; sourceTree = "<group>"; };
+		A15706212CC0F80000115165 /* searchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchBarView.swift; sourceTree = "<group>"; };
 		A1F31D822CBE543100227EFE /* EncylopediaView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncylopediaView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +103,8 @@
 		38AFC4212CBD0F2C00D9414E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A15706212CC0F80000115165 /* searchBarView.swift */,
+				A157061F2CC0E6CB00115165 /* MainViewProf.swift */,
 				A1F31D822CBE543100227EFE /* EncylopediaView2.swift */,
 				38AFC4232CBD98E500D9414E /* StartView.swift */,
 				38AFC4282CBD9CF500D9414E /* SettingView.swift */,
@@ -226,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15706202CC0E6DD00115165 /* MainViewProf.swift in Sources */,
 				38AFC4272CBD9C3F00D9414E /* Font.swift in Sources */,
 				38AFC42B2CBD9D0200D9414E /* MainView.swift in Sources */,
 				38AFC4292CBD9CF500D9414E /* SettingView.swift in Sources */,
@@ -234,6 +241,7 @@
 				38AFC4242CBD98E500D9414E /* StartView.swift in Sources */,
 				38AFC42F2CBD9D1500D9414E /* HospitalView.swift in Sources */,
 				38AFC4312CBD9D1E00D9414E /* EndingView.swift in Sources */,
+				A15706222CC0F80C00115165 /* searchBarView.swift in Sources */,
 				38AFC4162CBD0C0700D9414E /* ContentView.swift in Sources */,
 				38AFC42D2CBD9D0D00D9414E /* WalkView.swift in Sources */,
 				38AFC4142CBD0C0700D9414E /* DaengDaengWeekApp.swift in Sources */,

@@ -165,12 +165,12 @@ struct PledgeView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(width: 185, height: 54)
-                            .background(Color.aggrement)
+                            .background(Color.borderBeige)
                             .cornerRadius(10)
                     }
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.aggrement, lineWidth: 3)
+                            .stroke(Color.borderBeige, lineWidth: 3)
                     )
                     .padding(.bottom, 50)
                 }
