@@ -69,18 +69,24 @@ struct PledgeView: View {
                         }
                         .padding(.horizontal, 70)
 
-                        // 견종 텍스트와 선택 영역 나란히 배치 + 우측 이동
-                        HStack(alignment: .center, spacing: 10) {
+                        if !isValidName {
+                            Text("이름은 1글자 이상, 10글자 이하로 입력해주세요.")
+                                .foregroundColor(.red)
+                                .font(.dw(.regular, size: 14))
+                                .padding(.horizontal, 70)
+                        }
+
+                        // 견종 선택 필드
+                        HStack {
                             Text("견종")
                                 .font(.dw(.regular, size: 20))
-
-                            // 견종 선택 영역: 오른쪽으로 약간 이동
+                            Spacer()
                             HStack(spacing: 6) {
                                 ForEach(breeds, id: \.self) { breedOption in
                                     Button(action: {
                                         breed = breedOption
                                     }) {
-                                        VStack(spacing: -15) {
+                                        VStack(spacing: -20) {
                                             Image(breedImage(breed: breedOption))
                                                 .resizable()
                                                 .scaledToFit()
@@ -88,6 +94,7 @@ struct PledgeView: View {
 
                                             Text(breedOption)
                                                 .font(.dw(.regular, size: 16))
+                                                .foregroundColor(.black) // 텍스트를 검은색으로 설정
                                         }
                                         .frame(width: 100, height: 100)
                                         .background(Color.white)
@@ -100,51 +107,46 @@ struct PledgeView: View {
                                     }
                                 }
                             }
-                            .padding(10)
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .padding(.leading, 10) // 선택 영역을 오른쪽으로 약간 이동
+                            .frame(width: 200) // 견종 선택 영역의 가로 크기를 200으로 고정
                         }
-                        .padding(.horizontal, 70)
+                        .padding(.horizontal, 70) // 이름 입력란과 동일한 위치 설정
                     }
 
-                    if !isValidName {
-                        Text("이름은 1바이트 이상, 20바이트 이하로 입력해주세요.")
-                            .foregroundColor(.red)
-                            .font(.dw(.regular, size: 14))
-                    }
-
-                    // 성별 선택: 왼쪽 정렬로 수정
+                    // 성별 선택 영역
                     HStack(alignment: .center) {
                         Text("성별")
                             .font(.dw(.regular, size: 20))
-                            .frame(width: 60, alignment: .leading) // 왼쪽 정렬
-                        Picker(selection: $gender, label: Text(gender)) {
+                            .frame(width: 60, alignment: .leading)
+
+                        Picker(selection: $gender, label: Text(gender).foregroundColor(.black)) {
                             ForEach(genders, id: \.self) {
-                                Text($0).font(.dw(.regular, size: 20))
+                                Text($0)
+                                    .font(.dw(.regular, size: 20))
+                                    .foregroundColor(.black)
                             }
                         }
                         .pickerStyle(MenuPickerStyle())
-                        .frame(maxWidth: .infinity, alignment: .leading) // 왼쪽 정렬
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .background(Color.white)
                         .cornerRadius(10)
                     }
                     .padding(.horizontal, 70)
 
-                    // 나이 표시: 왼쪽에서 약간 띄워주기
+                    // 나이 표시 영역
                     HStack(alignment: .center) {
                         Text("나이")
                             .font(.dw(.regular, size: 20))
-                            .frame(width: 60, alignment: .leading) // 왼쪽 정렬
+                            .frame(width: 60, alignment: .leading)
 
                         Text(age)
                             .font(.dw(.bold, size: 20))
-                            .frame(maxWidth: .infinity, alignment: .leading) // 왼쪽 정렬
-                            .padding(.leading, 10) // 왼쪽에서 조금 띄워주기
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 10)
                             .background(Color.white)
                             .cornerRadius(10)
                     }
                     .padding(.horizontal, 70)
+
                     Spacer()
 
                     Text("위 반려견과 주인의 행복한 삶을 위하여 일주일 동안 열심히 \(name.isEmpty ? "000" : name)에 대해 알아가겠습니다.")
