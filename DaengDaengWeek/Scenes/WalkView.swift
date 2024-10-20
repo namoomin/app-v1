@@ -9,17 +9,22 @@ import HealthKit
 
 struct WalkView: View {
     @State private var showPopup = true
-    @State private var steps: Int = 0
-    @State private var exerciseTime: Int = 0
-    @State private var progress: Double = 0.0
+    @State private var steps: Int = 524
+    @State private var exerciseTime: Int = 16
+    @State private var progress: Double = 0.51
     
     private let healthStore = HKHealthStore()
     
     var body: some View {
         ZStack {
-           // Background color
+            Color(Color.btnPink)
+                .edgesIgnoringSafeArea(.all)
+            // Background color
             
-            VStack {
+            VStack{
+                MainViewProf(affectionLevel:.constant(0.3),backgroundColor: Color.btnPink)
+                    .padding(EdgeInsets(top:-250, leading:0, bottom: 20, trailing: 0))
+                
                 Spacer()
                 
                 // Dog image
@@ -42,28 +47,34 @@ struct WalkView: View {
                     
                 }
                 
+                Image("dogwalkwithperson")
+                    .resizable()
+                    .frame(width: 35, height: 35)
+                    .padding(EdgeInsets(top:-10, leading:0, bottom: 5, trailing: 0))
+                
                 
                 // Progress bar to show exercise progress
                 HStack {
                     ProgressView(value: progress, total: 1.0)
                         .progressViewStyle(LinearProgressViewStyle(tint: .green))
-                        .frame(height: 10)
-                    Image(systemName: "figure.walk")
+                        .frame(width: 325)
+                        .scaleEffect(x: 1, y: 2.5, anchor: .center)
                 }
                 .padding(.horizontal)
                 
                 // Display step count and exercise time
                 HStack {
                     Spacer()
-                    Text("\(steps)걸음")
+                    Text("            \(steps)걸음")
                     Spacer()
                     Text("\(exerciseTime)분 / 30분")
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 34)
                 .font(.dw(.bold, size: 16))
                 
                 Spacer()
             }
+            
             
             // Popup view
             if showPopup {
@@ -129,23 +140,23 @@ struct PopupView: View {
                 Spacer()
                 
                 Button(action: { showPopup = false }) {
-                    Text("X")
-                        .foregroundColor(.red)
+                    Image(systemName:"xmark")
                 }
                 .padding()
             }
             
             Text("걷기 시작하면 산책이 시작돼요.\n산책이 끝나면 집을 눌러주세요.\n함께 산책해 볼까요?")
                 .font(.dw(.bold, size: 20))
+                .lineSpacing(8)
                 .multilineTextAlignment(.center)
                 .padding(EdgeInsets(top:-20, leading:10, bottom: 20, trailing: 10))
             
         }
         .background(Color.btnBeige)
-        .cornerRadius(10)
+        .cornerRadius(20)
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.borderGray, lineWidth: 3))
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.borderGray, lineWidth: 1))
         .padding()
     }
 }

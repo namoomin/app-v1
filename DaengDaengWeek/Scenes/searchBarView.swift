@@ -13,11 +13,12 @@ struct searchBarView: View {
     
     var body: some View {
         HStack{
-            TextField("검색어를 넣어주세요", text: self.$text)
-                .padding(15)
-                .padding(.horizontal,15)
+            TextField("  검색어를 넣어주세요", text: self.$text)
+                .frame(width: 258, height: 32)
+                .font(.dw(.bold, size: 12))
                 .background(Color.white)
-                .cornerRadius(15)
+                .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                .cornerRadius(6)
                 .overlay(
                     HStack{
                         Spacer()
@@ -29,12 +30,12 @@ struct searchBarView: View {
                             }){
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(Color(.black))
-                                    .padding()
+                                    .padding(.trailing, 8)
                             }
                         }else{
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(Color(.black))
-                                .padding()
+                                .padding(.trailing, 8)
                         }
                         
                     }

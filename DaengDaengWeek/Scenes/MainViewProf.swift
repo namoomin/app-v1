@@ -7,103 +7,108 @@
 
 import SwiftUI
 
-
 struct MainViewProf: View {
-    @State private var currentTime: String = ""
-    @State private var affectionLevel: Double = 0.3 // userdefault date DATE.()
+    @Binding var affectionLevel: Double // 애정도 상태를 부모 뷰와 공유
+    @State private var currentTime: String = "" // 현재 시간을 저장
     
-    let timer = Timer.publish(every:1, on:. main, in: .common).autoconnect()
+    let backgroundColor: Color // 배경색 설정
     
     var body: some View {
-        HStack {
-            VStack {
-                HStack {
-                    Image("DogIcon") // 반려견 아이콘
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .padding()
-                    
-                    VStack(alignment: .leading) {
-                        Text("마루")
-                            .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+        ZStack {
+            backgroundColor.edgesIgnoringSafeArea(.all) // 배경색을 전체 화면에 적용
+            
+            HStack {
+                VStack {
+                    HStack {
+                        Image("DogIcon") // 반려견 아이콘
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .padding(EdgeInsets(top: 0, leading: 27.3, bottom: 27.3, trailing: 8))
                         
-                        ZStack(alignment:. leading) {
-                            ProgressView(value: affectionLevel)
-                                .progressViewStyle(LinearProgressViewStyle(tint: Color.heartPink))
-                                .frame(width: 80)
-                            Image("hearticon")
-                                .offset(x:-10, y:0)
-                                
+                        VStack(alignment: .leading) {
+                            Text("마루")
+                                .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                .frame(width: 53, height: 28, alignment: .leading)
                             
+                            ZStack(alignment: .leading) {
+                                ProgressView(value: affectionLevel) // 애정도 프로그레스 바
+                                    .frame(width: 57, height: 8)
+                                    .scaleEffect(x: 1, y: 1.6, anchor: .center)
+                                    .progressViewStyle(LinearProgressViewStyle(tint: Color.heartPink))
+                                    .offset(x: -10, y: 0)
+                                
+                                Image("hearticon") // 하트 아이콘
+                                    .resizable()
+                                    .frame(width: 18, height: 18)
+                                    .offset(x: -24, y: 0)
+                            }
+                            .padding(EdgeInsets(top: 0, leading: 24, bottom: 20.3, trailing: 8))
                         }
                         
-                        
+                        Spacer()
                     }
                     
-                    Spacer()
+                    Text(currentTime) // 현재 시간 표시
+                        .font(.dw(.bold, size: 18)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                        .onAppear(perform: updateTime) // 뷰가 나타날 때 시간 업데이트 시작
+                        .frame(width: 80, height: 40)
+                        .background(Color.gray.opacity(0.24))
+                        .cornerRadius(8)
+                        .padding(.horizontal, 1)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.gray, lineWidth: 3)
+                        )
+                        .padding(EdgeInsets(top:-10, leading:-30,bottom:20.3,trailing:8))
                 }
                 
-                Text(currentTime)
-                    .font(.dw(.bold, size: 16)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
-                    .onAppear(perform: updateTime)
-                    .frame(width: 80, height:  40)
-                    .background(Color.btnBeige)
-                    .cornerRadius(5)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color.borderGray, lineWidth: 3)
-                    )
-                    .padding(.horizontal)
-            }
-                        
-                        Spacer()
-                        
-                        Image("money")
-                            .padding(EdgeInsets(top:0, leading:0, bottom: 70, trailing: 20))
-
-                        
-                        
-                        Spacer()
-                        
-                        VStack(spacing: 10) {  // 일정한 간격 유지
-                            Button(action: { }) {
-                                Image("settingbtn")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
-                            }
-                            Button(action: { }) {
-                                Image("noticebtn")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
-                            }
-                            Button(action: { }) {
-                                Image("bookbtn")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
-                            }
-                        }
-                        
+                Spacer()
+                
+                Image("money") // 돈 아이콘
+                    .padding(EdgeInsets(top:0, leading:0,bottom:100,trailing:20))
+                
+                Spacer()
+                
+                VStack(spacing:10) { // 설정 버튼들
+                    Button(action:{}) {
+                        Image("settingbtn")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:40,height:40)
+                    }
                     
+                    Button(action:{}) {
+                        Image("noticebtn")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:40,height:40)
+                    }
                     
+                    Button(action:{}) {
+                        Image("bookbtn")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:40,height:40)
+                    }
+                }
             }
             .padding()
             .foregroundColor(.black)
+        }
     }
     
-    func updateTime() { //현재시각을 나타내는 함수
+    func updateTime() {
         let formatter = DateFormatter()
-        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.dateFormat = "a hh:mm"
         currentTime = formatter.string(from: Date())
         
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval:1.0,repeats:true){ _ in
             currentTime = formatter.string(from: Date())
         }
     }
 }
 
-#Preview {
-    MainViewProf()
+#Preview{
+   MainViewProf(affectionLevel:.constant(0.3), backgroundColor:.clear)
 }
