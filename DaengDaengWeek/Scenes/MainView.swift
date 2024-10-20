@@ -6,11 +6,14 @@ struct MainView: View {
     @State private var showPopup: Bool = false
     @State private var feedingProgress: CGFloat = 1.0
     @State private var activePopup: String? = nil
+    @State private var showSmallIcons: Bool = false
 
     private let feedingDuration: TimeInterval = 30.0
 
-    @State private var borderSize: CGFloat = 1
+    @State private var borderSize: CGFloat = 3 // 변경: 테두리 굵기
     @State private var buttonSpacing: CGFloat = 20
+    @State private var iconBackgroundColor: Color = .btnBeige // 변경: 아이콘 내부 배경색
+    @State private var iconBorderColor: Color = .borderGray // 변경: 아이콘 테두리색
 
     @State private var currentImageIndex: Int = 0
     private let images = ["Maindog1", "Maindog2"]
@@ -86,18 +89,28 @@ struct MainView: View {
             .padding()
             .foregroundColor(.black)
 
-            Spacer()
-
-            // 가운데 이미지 영역 (약간 위로 이동)
+            // 가운데 이미지 영역 (고정)
             Image(images[currentImageIndex])
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
                 .transition(.opacity)
                 .animation(.easeInOut, value: currentImageIndex)
-                .padding(.bottom, 120)
+                .padding(.bottom, showSmallIcons ? 0 : 120)
 
             Spacer()
+
+            // 작은 아이콘 영역 (먹이주기 버튼 클릭 시 표시)
+            if showSmallIcons {
+                HStack(spacing: buttonSpacing) {
+                    SmallIconView(icon: Image("Foodicon"), backgroundColor: iconBackgroundColor, borderColor: iconBorderColor, borderWidth: 2)
+                    SmallIconView(icon: Image("Watericon"), backgroundColor: iconBackgroundColor, borderColor: iconBorderColor, borderWidth: 2)
+                    SmallIconView(icon: Image("Snackicon"), backgroundColor: iconBackgroundColor, borderColor: iconBorderColor, borderWidth: 2)
+                }
+                .transition(.opacity)
+                .padding(.bottom, 10)
+                .padding(.leading, -100) // 왼쪽 먹이주기 아이콘영역 끝에서부터 시작되도록 정렬
+            }
 
             // 하단 버튼 영역
             HStack(spacing: buttonSpacing) {
@@ -105,15 +118,20 @@ struct MainView: View {
                     icon: Image("feedingbtn"),
                     text: "먹이주기",
                     progress: feedingProgress,
-                    backgroundColor: .btnBeige,
+                    backgroundColor: iconBackgroundColor,
                     borderWidth: borderSize,
-                    action: { refillFeedingProgress() }
+                    action: {
+                        refillFeedingProgress()
+                        withAnimation {
+                            showSmallIcons.toggle()
+                        }
+                    }
                 )
 
                 ButtonView(
                     icon: Image("hygienebtn"),
                     text: "위생관리",
-                    backgroundColor: .btnBeige,
+                    backgroundColor: iconBackgroundColor,
                     borderWidth: borderSize,
                     action: { togglePopup(for: "hygiene") }
                 )
@@ -121,7 +139,7 @@ struct MainView: View {
                 ButtonView(
                     icon: Image("affectionbtn"),
                     text: "애정표현",
-                    backgroundColor: .btnBeige,
+                    backgroundColor: iconBackgroundColor,
                     borderWidth: borderSize,
                     action: { togglePopup(for: "affection") }
                 )
@@ -129,7 +147,7 @@ struct MainView: View {
                 ButtonView(
                     icon: Image("Outingbtn"),
                     text: "외출하기",
-                    backgroundColor: .btnBeige,
+                    backgroundColor: iconBackgroundColor,
                     borderWidth: borderSize,
                     action: { togglePopup(for: "outing") }
                 )
@@ -188,12 +206,11 @@ struct FeedingButtonView: View {
 
                 VStack(spacing: 0) {
                     Spacer()
-
                     Rectangle()
                         .fill(Color.red.opacity(0.5))
-                        .frame(width: 80, height: 80 * progress)
+                        .frame(height: 80 * progress)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                 VStack(spacing: 1) {
                     icon
@@ -243,6 +260,29 @@ struct ButtonView: View {
                     .stroke(Color.borderGray, lineWidth: borderWidth)
             )
         }
+    }
+}
+
+struct SmallIconView: View {
+    let icon: Image
+    let backgroundColor: Color
+    let borderColor: Color
+    let borderWidth: CGFloat
+
+    var body: some View {
+        VStack {
+            icon
+                .resizable()
+                .scaledToFit()
+                .frame(width: 40, height: 40)
+        }
+        .frame(width: 60, height: 60)
+        .background(backgroundColor)
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(borderColor, lineWidth: borderWidth)
+        )
     }
 }
 
