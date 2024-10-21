@@ -11,6 +11,7 @@ struct MainView: View {
         VStack {
             // Importing MainViewProf
             MainViewProf(affectionLevel: $affectionLevel, backgroundColor: .white)
+                .padding(EdgeInsets(top: -30, leading: 0, bottom: 100, trailing: 8))
 
             Spacer()
 
