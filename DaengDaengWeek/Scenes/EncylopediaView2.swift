@@ -19,6 +19,7 @@ struct EncyclopediaView2: View {
                     // Tab 1 action
                 }) {
                     Image("Bookbtn1")
+                        
                 }
                 
                 Button(action: {
@@ -42,52 +43,55 @@ struct EncyclopediaView2: View {
                 Spacer()
             }
             .frame(alignment:.leading)
-            .padding(EdgeInsets(top:10, leading:30, bottom: 15, trailing: 0))
+            .padding(EdgeInsets(top:23, leading:50, bottom: 0, trailing: 0))
 
             VStack {
+                Button(action: {
+                    // 닫기 버튼 액션
+                }) {
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .frame(width: 21, height: 21)
+                        .padding(EdgeInsets(top:15, leading:282, bottom: -30, trailing: 0))
+                }
+                
                 HStack {
                     Image("bookicon")
                         .font(.largeTitle)
-                        .padding(.leading)
+                        .padding(EdgeInsets(top:0, leading:28, bottom: 15, trailing: 0))
                     
                     ZStack {
                         // Border layer
                         Text("멍멍테니카 백과사전")
-                            .font(.dw(.bold, size: 26)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                            .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                             .foregroundColor(Color.borderGray)
-                            .padding(8)
+                            .padding(EdgeInsets(top:0, leading:0, bottom: 20, trailing: 54))
                             .overlay(
                                 Text("멍멍테니카 백과사전")
-                                    .font(.dw(.bold, size: 26)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                    .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                                     .foregroundColor(Color.borderBeige) //Border color
-                                    .offset(x:2, y:2)
-                                    .padding(8)
+                                    .offset(x:1, y:1)
+                                    .padding(EdgeInsets(top:0, leading:0, bottom: 20, trailing: 54))
                             )
                         
                         //Foreground text
                         Text("멍멍테니카 백과사전")
-                            .font(.dw(.bold, size: 26)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                            .font(.dw(.light, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                             .foregroundColor(.white) // Text Color
-                            .padding(8)
+                            .padding(EdgeInsets(top:0, leading:0, bottom: 20, trailing: 54))
                     }
                     
-                    Spacer()
-                    
-                    
-                    Button(action: {
-                        // 닫기 버튼 액션
-                    }) {
-                        Image(systemName: "xmark")
-                            .padding()
-                    }
                 }
-                .padding(EdgeInsets(top:20, leading:10, bottom: 20, trailing: 10))
+                .padding(EdgeInsets(top:20, leading:10, bottom: -15, trailing: 10))
                 
-                searchBarView(text:self.$text)
-                    .padding(.horizontal,20)
+                HStack{
+                    searchBarView(text:self.$text)
+                }
+                .padding(EdgeInsets(top:0, leading:40, bottom: -10, trailing: 40))
+                
                 
                 ScrollView {
-                    VStack(spacing: 10) {
+                    VStack(spacing: 0) {
                         SectionButton(title: "사료주기", isExpanded: expandedSection == "사료주기") {
                             toggleSection("사료주기")
                         }
@@ -102,15 +106,16 @@ struct EncyclopediaView2: View {
                     }
                     .padding()
                 }
+                .padding(EdgeInsets(top:0, leading:10, bottom: 0, trailing: 16))
                 
                 Spacer()
             }
             .background(Color(Color.btnBeige))
-            .cornerRadius(12)
+            .cornerRadius(20)
             .overlay(
-                RoundedRectangle(cornerRadius: 12)
+                RoundedRectangle(cornerRadius: 20)
                     .stroke(Color.borderGray, lineWidth: 5))
-            .padding(EdgeInsets(top:-30, leading:20, bottom: 120, trailing: 20))
+            .padding(EdgeInsets(top:-15, leading:28, bottom: 177, trailing: 27))
         }
         .background(Color.white)
         .foregroundColor(Color.black)
@@ -137,7 +142,7 @@ struct SectionButton: View {
                     Spacer()
                     
                     Text(title)
-                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                        .font(.dw(.bold, size: 18)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                     
                     Spacer()
         
@@ -147,6 +152,7 @@ struct SectionButton: View {
                 .background(Color.white)
                 .cornerRadius(8)
             }
+            .frame(width: 288, height:58)
             
             if isExpanded {
                 if title == "사료주기" {
@@ -160,40 +166,73 @@ struct SectionButton: View {
                                         .font(.largeTitle)
                                         .padding()
                                     Text("사료주기 • 1")
-                                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                        .font(.dw(.bold, size: 14)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                                     Spacer()
                                 }
                                 Text("강아지는 성장 단계에 따라 하루에 사료를 주는 횟수가 달라집니다. 대부분의 경우 어릴 땐 하루 4~5회, 성견일 땐 2회 정도가 적당합니다.")
-                                    .font(.dw(.bold, size: 20)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                    .font(.dw(.light, size: 14)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
                                     .multilineTextAlignment(.leading)
-                                    .padding(.horizontal)
-                            }
+                                    .padding(EdgeInsets(top:-15, leading:10, bottom: 5, trailing: 10))
+                                Rectangle()
+                                    .frame(width: 265, height:1)
+                                    .background(Color.lineGray)
+                                    .foregroundColor(Color.lineGray.opacity(0.4))
+                                // No text styles in this selection
+                                
+                                                }
                         }
                         
                         Button(action: {
                             // Tab 2 action
                         }) {
                             VStack{
-                                HStack{
-                                    Image("lockicon")
-                                        .padding()
-                                    Text("사료주기 • 2")
-                                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                VStack{
+                                    HStack{
+                                        Image("lockicon")
+                                            .padding()
+                                        Text("사료주기 • 2")
+                                            .font(.dw(.bold, size: 14)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                    }
+                                    .padding(EdgeInsets(top:-5, leading:0, bottom: -5, trailing: 150))
+                                    Rectangle()
+                                        .frame(width: 265, height:1)
+                                        .background(Color.lineGray)
+                                        .foregroundColor(Color.lineGray.opacity(0.4))
+                                    
                                 }
-                                HStack{
-                                    Image("lockicon")
-                                        .padding()
-                                    Text("사료주기 • 3")
-                                        .font(.dw(.bold, size: 24)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                VStack{
+                                    HStack{
+                                        Image("lockicon")
+                                            .padding()
+                                        Text("사료주기 • 3")
+                                            .font(.dw(.bold, size: 14)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                    }
+                                    .padding(EdgeInsets(top:-5, leading:0, bottom: -5, trailing: 150))
+                                    Rectangle()
+                                        .frame(width: 265, height:1)
+                                        .background(Color.lineGray)
+                                        .foregroundColor(Color.lineGray.opacity(0.4))
+                                    
                                 }
-                                
+                                VStack{
+                                    HStack{
+                                        Image("lockicon")
+                                            .padding()
+                                        Text("사료주기 • 4")
+                                            .font(.dw(.bold, size: 14)) //폰트 적용 .font(.dw(.굵기, size: 폰트크기))
+                                    }
+                                    .padding(EdgeInsets(top:-5, leading:0, bottom: -5, trailing: 150))
+                                    Rectangle()
+                                        .frame(width: 265, height:1)
+                                        .background(Color.lineGray)
+                                        .foregroundColor(Color.lineGray.opacity(0.4))
+                                    
+                                }
                             }
                         }
                         
                     }
                     .background(Color.white.opacity(0.9))
-                    .cornerRadius(5)
-                    
                     
                 }
             }

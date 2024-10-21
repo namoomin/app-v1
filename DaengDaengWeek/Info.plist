@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>이 앱은 운동 정보를 통해 건강 데이터를 업데이트합니다.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>이 앱은 걸음 수와 운동 시간을 추적하기 위해 건강 데이터에 접근해야 합니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>EF_Rainyday-B(otf).otf</string>
