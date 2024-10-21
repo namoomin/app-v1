@@ -105,12 +105,12 @@
 		38AFC4212CBD0F2C00D9414E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A15706212CC0F80000115165 /* searchBarView.swift */,
-				A157061F2CC0E6CB00115165 /* MainViewProf.swift */,
-				A1F31D822CBE543100227EFE /* EncylopediaView2.swift */,
 				38AFC4232CBD98E500D9414E /* StartView.swift */,
 				38AFC4282CBD9CF500D9414E /* SettingView.swift */,
 				38AFC42A2CBD9D0200D9414E /* MainView.swift */,
+				A157061F2CC0E6CB00115165 /* MainViewProf.swift */,
+				A1F31D822CBE543100227EFE /* EncylopediaView2.swift */,
+				A15706212CC0F80000115165 /* searchBarView.swift */,
 				38AFC42C2CBD9D0D00D9414E /* WalkView.swift */,
 				38AFC42E2CBD9D1500D9414E /* HospitalView.swift */,
 				6AA0C2062CC22CC40098EF87 /* MedicalcardView.swift */,

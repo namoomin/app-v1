@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MainView: View {
+  
     // 현재 시간 표시를 위한 문자열 변수
     @State private var currentTime: String = ""
     // 애정도 (0.0 ~ 1.0 사이의 값)
@@ -35,92 +36,105 @@ struct MainView: View {
 
     var body: some View {
         VStack {
-            // 상단 정보 영역
-            HStack {
-                VStack {
-                    // 프로필 정보 영역
-                    HStack {
-                        // 강아지 아이콘 이미지
-                        Image("DogIcon")
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .padding()
+//             // 상단 정보 영역
+//             HStack {
+//                 VStack {
+//                     // 프로필 정보 영역
+//                     HStack {
+//                         // 강아지 아이콘 이미지
+//                         Image("DogIcon")
+//                             .resizable()
+//                             .frame(width: 60, height: 60)
+//                             .padding()
 
-                        // 강아지 이름과 애정도 표시
-                        VStack(alignment: .leading) {
-                            Text("마루") // 강아지 이름
-                                .font(.dw(.bold, size: 25))
+//                         // 강아지 이름과 애정도 표시
+//                         VStack(alignment: .leading) {
+//                             Text("마루") // 강아지 이름
+//                                 .font(.dw(.bold, size: 25))
 
-                            // 애정도 진행 바
-                            ProgressView(value: affectionLevel)
-                                .progressViewStyle(LinearProgressViewStyle(tint: .pink))
-                                .frame(width: 80)
-                        }
+//                             // 애정도 진행 바
+//                             ProgressView(value: affectionLevel)
+//                                 .progressViewStyle(LinearProgressViewStyle(tint: .pink))
+//                                 .frame(width: 80)
+//                         }
 
-                        Spacer()
+//                         Spacer()
 
-                        // 돈 아이콘 이미지
-                        Image("money")
-                            .padding()
+//                         // 돈 아이콘 이미지
+//                         Image("money")
+//                             .padding()
 
-                        Spacer()
+//                         Spacer()
 
-                        // 설정, 알림, 도감 버튼들
-                        VStack(spacing: 15) {  // 일정한 간격 유지
-                            // 설정 버튼
-                            Button(action: { }) {
-                                Image("settingbtn")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
-                            }
-                            // 알림 버튼
-                            Button(action: { }) {
-                                Image("noticebtn")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
-                            }
-                            // 도감 버튼
-                            Button(action: { }) {
-                                Image("bookbtn")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)  // 동일한 크기 유지
-                            }
-                        }
-                    }
+//                         // 설정, 알림, 도감 버튼들
+//                         VStack(spacing: 15) {  // 일정한 간격 유지
+//                             // 설정 버튼
+//                             Button(action: { }) {
+//                                 Image("settingbtn")
+//                                     .resizable()
+//                                     .scaledToFit()
+//                                     .frame(width: 40, height: 40)  // 동일한 크기 유지
+//                             }
+//                             // 알림 버튼
+//                             Button(action: { }) {
+//                                 Image("noticebtn")
+//                                     .resizable()
+//                                     .scaledToFit()
+//                                     .frame(width: 40, height: 40)  // 동일한 크기 유지
+//                             }
+//                             // 도감 버튼
+//                             Button(action: { }) {
+//                                 Image("bookbtn")
+//                                     .resizable()
+//                                     .scaledToFit()
+//                                     .frame(width: 40, height: 40)  // 동일한 크기 유지
+//                             }
+//                         }
+//                     }
 
-                    // 시간 표시 영역
-                    HStack {
-                        // 현재 시간 표시
-                        Text(currentTime)
-                            .font(.dw(.bold, size: 16))
-                            .onAppear(perform: updateTime)
-                            .frame(width: 80, height: 40)
-                            .background(Color.btnBeige)
-                            .cornerRadius(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.borderGray, lineWidth: 1)
-                            )
-                            .padding(.horizontal)
-                        Spacer()
-                    }
-                }
-            }
-            .padding()
-            .foregroundColor(.black)
+//                     // 시간 표시 영역
+//                     HStack {
+//                         // 현재 시간 표시
+//                         Text(currentTime)
+//                             .font(.dw(.bold, size: 16))
+//                             .onAppear(perform: updateTime)
+//                             .frame(width: 80, height: 40)
+//                             .background(Color.btnBeige)
+//                             .cornerRadius(5)
+//                             .overlay(
+//                                 RoundedRectangle(cornerRadius: 5)
+//                                     .stroke(Color.borderGray, lineWidth: 1)
+//                             )
+//                             .padding(.horizontal)
+//                         Spacer()
+//                     }
+//                 }
+//             }
+//             .padding()
+//             .foregroundColor(.black)
 
             // 가운데 메인 이미지 영역 (현재 이미지 인덱스에 따라 이미지 표시)
-            Image(images[currentImageIndex])
+//             Image(images[currentImageIndex])
+//                 .resizable()
+//                 .scaledToFit()
+//                 .frame(width: 200, height: 200)
+//                 .transition(.opacity)
+//                 .animation(.easeInOut, value: currentImageIndex)
+//                 .padding(.bottom, showSmallIcons ? 0 : 120)
+
+                      // Importing MainViewProf
+            MainViewProf(affectionLevel: $affectionLevel, backgroundColor: .white)
+                .padding(EdgeInsets(top: -30, leading: 0, bottom: 100, trailing: 8))
+
+            Spacer()
+
+            // Center image area
+            Image("Maindog1")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
-                .transition(.opacity)
-                .animation(.easeInOut, value: currentImageIndex)
-                .padding(.bottom, showSmallIcons ? 0 : 120)
-
+                .padding(.bottom, 120)
+          
             Spacer()
 
             // 작은 아이콘 영역 (먹이주기 버튼 클릭 시 표시)
@@ -163,6 +177,7 @@ struct MainView: View {
                     backgroundColor: iconBackgroundColor,
                     borderWidth: borderSize,
                     action: {
+                        increaseAffection() // 상호작용시 호감도 
                         refillFeedingProgress() // 먹이주기 진행도 초기화
                         withAnimation {
                             showSmallIcons.toggle() // 작은 아이콘 표시/숨김 토글
@@ -176,7 +191,10 @@ struct MainView: View {
                     text: "위생관리",
                     backgroundColor: iconBackgroundColor,
                     borderWidth: borderSize,
-                    action: { togglePopup(for: "hygiene") } // 위생관리 팝업 토글
+                    action: { 
+                      increaseAffection() // 상호작용시 호감도 
+                      togglePopup(for: "hygiene") // 위생관리 팝업 토글
+                    } 
                 )
 
                 // 애정표현 버튼
@@ -185,20 +203,29 @@ struct MainView: View {
                     text: "애정표현",
                     backgroundColor: iconBackgroundColor,
                     borderWidth: borderSize,
-                    action: { togglePopup(for: "affection") } // 애정표현 팝업 토글
+                    action: { 
+                      increaseAffection() // 상호작용시 호감도 
+                      togglePopup(for: "affection") // 애정표현 팝업 토글
+                    } 
                 )
 
                 // 외출하기 버튼
                 ButtonView(
-                    icon: Image("Outingbtn"),
+                    icon: Image("outingbtn"),
                     text: "외출하기",
                     backgroundColor: iconBackgroundColor,
                     borderWidth: borderSize,
-                    action: { togglePopup(for: "outing") } // 외출하기 팝업 토글
+                    action: { 
+                      increaseAffection() // 상호작용시 호감도 
+                      togglePopup(for: "outing") // 외출하기 팝업 토글
+                    } 
                 )
             }
             .padding()
         }
+//         .onReceive(Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()) { _ in
+//             updateFeedingProgress()
+//         }
         // 타이머를 이용하여 먹이주기 진행도 업데이트
         .onReceive(timer) { _ in
             updateFeedingProgress()
@@ -226,7 +253,11 @@ struct MainView: View {
         feedingProgress = max(0.0, feedingProgress - decrement)
     }
 
-    // 먹이주기 진행도 초기화 함수
+    func increaseAffection() {
+        affectionLevel = min(1.0, affectionLevel + 0.05) // Increase affection level up to a maximum of 1.0
+    }
+  
+      // 먹이주기 진행도 초기화 함수
     func refillFeedingProgress() {
         feedingProgress = 1.0
     }
@@ -241,6 +272,7 @@ struct MainView: View {
         currentImageIndex = (currentImageIndex + 1) % images.count
     }
 }
+
 
 // 먹이주기 버튼 뷰
 struct FeedingButtonView: View {
@@ -272,20 +304,21 @@ struct FeedingButtonView: View {
                     icon
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50, height: 50)
+                        .frame(width :50,height :50)
+
                     Text(text)
-                        .font(.dw(.bold, size: 14))
+                        .font(.system(size :14,weight :.bold))
                         .foregroundColor(.black)
+
                 }
-            }
-            .frame(width: 80, height: 80)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.borderGray, lineWidth: borderWidth)
-            )
+
+            }.frame(width :80,height :80).overlay(RoundedRectangle(cornerRadius :10).stroke(Color.gray,lineWidth :5))
         }
+
     }
+
 }
+
 
 // 일반 버튼 뷰
 struct ButtonView: View {
@@ -307,19 +340,19 @@ struct ButtonView: View {
                     icon
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50, height: 50)
+                        .frame(width :50,height :50)
+
                     Text(text)
-                        .font(.dw(.bold, size: 14))
+                        .font(.system(size :14,weight :.bold))
                         .foregroundColor(.black)
+
                 }
-            }
-            .frame(width: 80, height: 80)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.borderGray, lineWidth: borderWidth)
-            )
+
+            }.frame(width :80,height :80).overlay(RoundedRectangle(cornerRadius :10).stroke(Color.gray,lineWidth :5))
         }
+
     }
+
 }
 
 // 작은 아이콘 뷰
@@ -347,5 +380,5 @@ struct SmallIconView: View {
 }
 
 #Preview {
-    MainView()
+   MainView()
 }
